@@ -1,5 +1,17 @@
 <?php
 error_reporting(0);
+
+$server = "https://pastebin.com/raw/eqzh1nDL";
+$getserver = file_get_contents($server);
+$dataserver = trim(explode('#',explode('#bifaucet:',$getserver)[1])[0]);
+if($dataserver == "off"){
+	exit("Script off");
+}
+if($dataserver == "mt"){
+	exit("Script sedang dalam pemeliharaan");
+}
+
+
 //CLASS MODUL
 function Run($url, $head = 0, $post = 0){
 	$ch = curl_init();
