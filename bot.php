@@ -1,14 +1,25 @@
 <?php
 error_reporting(0);
 
+const
+b = "\033[1;34m",
+c = "\033[1;36m",
+d = "\033[0m",
+h = "\033[1;32m",
+k = "\033[1;33m",
+m = "\033[1;31m",
+n = "\n",
+p = "\033[1;37m",
+u = "\033[1;35m";
+
 $server = "https://pastebin.com/raw/eqzh1nDL";
 $getserver = file_get_contents($server);
 $dataserver = trim(explode('#',explode('#bifaucet:',$getserver)[1])[0]);
 if($dataserver == "off"){
-	exit("Script off");
+	exit(m."Script off".c);
 }
 if($dataserver == "mt"){
-	exit("Script sedang dalam pemeliharaan");
+	exit(m."Script sedang dalam pemeliharaan");
 }
 
 
